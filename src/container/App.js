@@ -4,6 +4,7 @@ import { Layout } from "../components/Layout";
 import { SearchForm } from "../components/SearchForm";
 import { Alert } from "@material-ui/lab";
 import { useGetData } from "../hooks/useGetData";
+import { WeatherDetail } from "../components/WeatherDetail";
 
 export const App = () => {
   const {
@@ -16,8 +17,6 @@ export const App = () => {
     setSearch,
     setIsQuery,
   } = useGetData();
-
-  console.log("App -> data", data);
 
   return (
     <Fragment>
@@ -32,15 +31,15 @@ export const App = () => {
               setMessageError={setMessageError}
             />
           </Grid>
-          <Grid item xs={12}>
-            {error && (
+          {error && (
+            <Grid item xs={12}>
               <Alert variant="outlined" severity="warning">
                 {messageError}
               </Alert>
-            )}
-          </Grid>
+            </Grid>
+          )}
           <Grid item xs={12}>
-            <h1>Componente detalle del clima</h1>
+            <WeatherDetail data={data} />
           </Grid>
         </Grid>
       </Layout>
