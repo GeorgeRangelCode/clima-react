@@ -12,6 +12,7 @@ import {
 
 export const useGetData = () => {
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [messageError, setMessageError] = useState("");
   const [search, setSearch] = useState("");
   const [isQuery, setIsQuery] = useState(false);
@@ -22,6 +23,7 @@ export const useGetData = () => {
     const searhApi = async () => {
       if (isQuery) {
         try {
+          setLoading(true);
           const urlDetail = `${BASE_URL}${WEATHER_ENDPOINT}?q=${search}&units=${UNITS}&appid=${APP_ID}&lang=${LANG}`;
           const responseDetail = await fetch(urlDetail);
           const resultDetail = await responseDetail.json();
@@ -36,12 +38,14 @@ export const useGetData = () => {
           resultWeek.daily.shift();
           setDataWeek(resultWeek.daily);
           setIsQuery(false);
+          setLoading(false);
 
           if (resultDetail.cod === "404") {
             setError(true);
             setMessageError(NOT_DATA);
             setDataDetail(null);
             setDataWeek(null);
+            setLoading(false);
           }
         } catch (error) {
           setIsQuery(false);
@@ -49,6 +53,7 @@ export const useGetData = () => {
           setMessageError(INTERNAL_ERROR);
           setDataDetail(null);
           setDataWeek(null);
+          setLoading(false);
         }
       }
     };
@@ -62,6 +67,7 @@ export const useGetData = () => {
     isQuery,
     dataDetail,
     dataWeek,
+    loading,
     setError,
     setMessageError,
     setSearch,

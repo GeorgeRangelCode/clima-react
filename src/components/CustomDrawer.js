@@ -7,6 +7,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import { Link } from "react-router-dom";
 
 export const CustomDrawer = ({ open, handleDrawerClose, classes, theme }) => {
   return (
@@ -33,7 +34,9 @@ export const CustomDrawer = ({ open, handleDrawerClose, classes, theme }) => {
 
       <List>
         <ListItem button>
-          <ListItemText primary="Busquedas recientes" />
+          <Link to="recent-searches" className={classes.textLinkNavegation}>
+            <ListItemText primary="Busquedas recientes" />
+          </Link>
         </ListItem>
       </List>
     </Drawer>

@@ -3,12 +3,14 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 
 export const Header = ({ open, handleDrawerOpen, classes }) => {
   return (
     <AppBar
+      style={{ background: "#2999bf" }}
       position="fixed"
       className={clsx(classes.appBar, {
         [classes.appBarShift]: open,
@@ -25,7 +27,9 @@ export const Header = ({ open, handleDrawerOpen, classes }) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap>
-          Weather App
+          <Link className={classes.textLogo} to="/">
+            Weather App
+          </Link>
         </Typography>
       </Toolbar>
     </AppBar>
