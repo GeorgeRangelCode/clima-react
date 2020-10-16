@@ -5,13 +5,15 @@ import { SearchForm } from "../components/SearchForm";
 import { Alert } from "@material-ui/lab";
 import { useGetData } from "../hooks/useGetData";
 import { WeatherDetail } from "../components/WeatherDetail";
+import { WeeklyWeatherList } from "../components/WeeklyWeatherList";
 
 export const App = () => {
   const {
     error,
     messageError,
     search,
-    data,
+    dataDetail,
+    dataWeek,
     setError,
     setMessageError,
     setSearch,
@@ -39,7 +41,10 @@ export const App = () => {
             </Grid>
           )}
           <Grid item xs={12}>
-            <WeatherDetail data={data} />
+            <WeatherDetail dataDetail={dataDetail} />
+          </Grid>
+          <Grid item xs={12}>
+            <WeeklyWeatherList dataWeek={dataWeek} />
           </Grid>
         </Grid>
       </Layout>
