@@ -28,6 +28,8 @@ export const useGetData = () => {
           const responseDetail = await fetch(urlDetail);
           const resultDetail = await responseDetail.json();
 
+          localStorage.setItem("recent-search", JSON.stringify(resultDetail));
+
           const { coord } = resultDetail;
 
           const urlWeek = `${BASE_URL}${ONECALL_ENDPOINT}?lat=${coord.lat}&lon=${coord.lon}&units=${UNITS}&exclude=current,minutely,hourly&appid=${APP_ID}&lang=${LANG}`;

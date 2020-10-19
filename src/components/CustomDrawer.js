@@ -35,7 +35,7 @@ export const CustomDrawer = ({ open, handleDrawerClose, classes, theme }) => {
       <List>
         <ListItem button>
           <Link to="recent-searches" className={classes.textLinkNavegation}>
-            <ListItemText primary="Busquedas recientes" />
+            <ListItemText primary="Busqueda reciente" />
           </Link>
         </ListItem>
       </List>

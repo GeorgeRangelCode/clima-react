@@ -5,7 +5,7 @@ export const useStylesWeatherRecentSearchesCard = makeStyles((theme) => ({
     border: "1px solid #9b9999",
     padding: "0 25px",
     width: "170px",
-    height: "220px",
+    height: "235px",
     textAlign: "center",
   },
   weatherTextCity: {
@@ -17,12 +17,12 @@ export const useStylesWeatherRecentSearchesCard = makeStyles((theme) => ({
   },
   weatherTextTemp: {
     color: "white",
-    margin: "3px",
     padding: "3px 5px",
     background: "#2999bf",
     fontWeight: 800,
     borderRadius: "2px",
     margin: "0px 25px 25px 25px",
+    fontSize: "12.6px",
   },
   weatherViewMore: {
     fontWeight: 400,

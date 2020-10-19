@@ -7,7 +7,7 @@ export const WeatherRecentSearchesList = () => {
 
   return (
     <>
-      <h1 className={classes.weatherListTitle}>Busquedas recientes</h1>
+      <h1 className={classes.weatherListTitle}>Busqueda reciente</h1>
       <section className={classes.weatherList}>
         <WeatherRecentSearchesCard />
       </section>
