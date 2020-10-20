@@ -28,7 +28,10 @@ export const useGetData = () => {
           const responseDetail = await fetch(urlDetail);
           const resultDetail = await responseDetail.json();
 
-          localStorage.setItem("recent-search", JSON.stringify(resultDetail));
+
+          if (resultDetail.cod !== "404") {
+            localStorage.setItem("recent-search", JSON.stringify(resultDetail));
+          }
 
           const { coord } = resultDetail;
 
